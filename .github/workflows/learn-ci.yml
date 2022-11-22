@@ -49,7 +49,7 @@ jobs:
         with:
           host: ${{ secrets.HOSTNAME }}
           username: ${{ secrets.USER }}
-          password: ${{ secrets.HOSTSECRET }}
+          password: ${{ secrets.HOSTSECRET }} 
           # port: ${{ secrets.PORT }}
           script: whoami
 
