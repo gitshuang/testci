@@ -41,6 +41,6 @@ jobs:
           user: ${{ secrets.USER }} # 服务器用户名
           pass: ${{ secrets.HOSTSECRET }} # 服务器密码
           connect_timeout: 1000s
-          local: './*' # 源路径（工作流）
+          local: 'aa.js' # 源路径（工作流）
           remote: /Users/shuanger/Desktop/test1111 # 目标路径（服务器）
 
