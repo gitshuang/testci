@@ -34,14 +34,22 @@ jobs:
         run: |
           echo Add other actions to build,
           echo ${{ secrets.HOSTNAME }}
-      - name: Deploy
-        uses: appleboy/scp-action@master
+      # - name: Deploy
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: ${{ secrets.HOSTNAME }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+      #     user: ${{ secrets.USER }} # 服务器用户名
+      #     # pass: ${{ secrets.HOSTSECRET }} # 服务器密码
+      #     key: ${{ secrets.KEY }}
+      #     connect_timeout: 1000s
+      #     source: 'aa.js' # 源路径（工作流）
+      #     target: '/Users/shuanger/Desktop/test1111' # 目标路径（服务器）
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOSTNAME }} # 服务器IP（需要在GitHub上自行配置对应的secret）
-          user: ${{ secrets.USER }} # 服务器用户名
-          # pass: ${{ secrets.HOSTSECRET }} # 服务器密码
-          key: ${{ secrets.KEY }}
-          connect_timeout: 1000s
-          source: 'aa.js' # 源路径（工作流）
-          target: '/Users/shuanger/Desktop/test1111' # 目标路径（服务器）
+          host: ${{ secrets.HOSTNAME }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.HOSTSECRET }}
+          # port: ${{ secrets.PORT }}
+          script: whoami
 
