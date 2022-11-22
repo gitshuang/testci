@@ -34,3 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo ${{ secrets.HOSTNAME }}
+      - name: Deploy
+        uses: cross-the-world/scp-pipeline@master
+        with:
+          host: ${{ secrets.HOSTNAME }} # 服务器IP（需要在GitHub上自行配置对应的secret）
+          user: ${{ secrets.USER }} # 服务器用户名
+          pass: ${{ secrets.HOSTSECRET }} # 服务器密码
+          connect_timeout: 10s
+          local: './*' # 源路径（工作流）
+          remote: /Users/haishuang/Desktop/testaa # 目标路径（服务器）
+
