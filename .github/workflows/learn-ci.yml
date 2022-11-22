@@ -42,5 +42,5 @@ jobs:
           pass: ${{ secrets.HOSTSECRET }} # 服务器密码
           connect_timeout: 1000s
           local: './*' # 源路径（工作流）
-          remote: /Users/haishuang/Desktop/testaa # 目标路径（服务器）
+          remote: /Users/shuanger/Desktop/test1111 # 目标路径（服务器）
 
