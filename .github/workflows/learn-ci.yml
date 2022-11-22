@@ -35,12 +35,13 @@ jobs:
           echo Add other actions to build,
           echo ${{ secrets.HOSTNAME }}
       - name: Deploy
-        uses: cross-the-world/scp-pipeline@master
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOSTNAME }} # 服务器IP（需要在GitHub上自行配置对应的secret）
           user: ${{ secrets.USER }} # 服务器用户名
-          pass: ${{ secrets.HOSTSECRET }} # 服务器密码
+          # pass: ${{ secrets.HOSTSECRET }} # 服务器密码
+          key: ${{ secrets.KEY }}
           connect_timeout: 1000s
-          local: 'aa.js' # 源路径（工作流）
-          remote: /Users/shuanger/Desktop/test1111 # 目标路径（服务器）
+          source: 'aa.js' # 源路径（工作流）
+          target: '/Users/shuanger/Desktop/test1111' # 目标路径（服务器）
 
